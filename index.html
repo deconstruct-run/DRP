@@ -340,14 +340,17 @@ body.menu-open .sheet{transform:none;opacity:1;visibility:visible;}
 
 /* ===== MOBILE / SMALL SCREENS ===== */
 @media (max-width:700px){
-  html,body{overflow-x:hidden;max-width:100%;}
-  .route{overflow-x:hidden;}
+  html,body{overflow-x:clip;max-width:100%;}
+  .route{overflow-x:clip;}
   /* every multi-column grid collapses to a single column */
-  .rt-home .grid,.rt-home .wire-row,
+  .rt-home .grid,.rt-home .wire-row,.rt-home .lead,
   .rt-wis .insgrid,.rt-wis .tiers,
   .rt-gloss .ggrid,
   .rt-cite .cite-grid,.rt-cite .mgrid,
   .rt-feat .readout,.rt-feat .ce-iw,.rt-feat .ce-judge,.rt-feat .ce-legend{grid-template-columns:1fr !important;}
+  /* home lead feature (image + "The Program Board" copy): stack image over text */
+  .rt-home .lead{gap:22px !important;align-items:start;}
+  .rt-home .lead .lead-media{width:100%;}
   .rt-feat .ce-strip{grid-template-columns:1fr 1fr !important;}
   /* program table: stack each row, drop the now-meaningless header row */
   .rt-gloss .grow{grid-template-columns:1fr !important;gap:5px;padding:14px 16px;}
