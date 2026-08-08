@@ -338,6 +338,50 @@ body.menu-open .sheet{transform:none;opacity:1;visibility:visible;}
 #r-wis .rv{opacity:1!important;transform:none!important;} .rt-wis .hero{min-height:90vh;}
 .rt-wis #wire,.rt-wis #insight,.rt-wis #synth{scroll-margin-top:104px;}
 
+/* ===== MOBILE / SMALL SCREENS ===== */
+@media (max-width:700px){
+  html,body{overflow-x:hidden;max-width:100%;}
+  .route{overflow-x:hidden;}
+  /* every multi-column grid collapses to a single column */
+  .rt-home .grid,.rt-home .wire-row,
+  .rt-wis .insgrid,.rt-wis .tiers,
+  .rt-gloss .ggrid,
+  .rt-cite .cite-grid,.rt-cite .mgrid,
+  .rt-feat .readout,.rt-feat .ce-iw,.rt-feat .ce-judge,.rt-feat .ce-legend{grid-template-columns:1fr !important;}
+  .rt-feat .ce-strip{grid-template-columns:1fr 1fr !important;}
+  /* program table: stack each row, drop the now-meaningless header row */
+  .rt-gloss .grow{grid-template-columns:1fr !important;gap:5px;padding:14px 16px;}
+  .rt-gloss .grow.ghead{display:none !important;}
+  .rt-gloss .grow .gpn{font-size:15px;}
+  /* section tabs + continue CTA stack */
+  .rt-sec .sec-tabs{flex-direction:column;}
+  .rt-sec .sec-tabs .tab{border-right:none;}
+  .rt-sec .cont-cta{flex-direction:column;align-items:flex-start;gap:20px;padding:40px 20px 48px;}
+  /* readout cells: vertical rules become horizontal when stacked */
+  .rt-feat .readout .r{border-right:none;border-bottom:1px solid var(--bd2);}
+  .rt-feat .readout .r:last-child{border-bottom:none;}
+  /* kill full-bleed breakouts — these were causing sideways scroll and clipped imagery */
+  .rt-feat .pullwide{margin-left:0 !important;margin-right:0 !important;padding:7vh 20px;}
+  .rt-feat .figure{margin-left:0 !important;margin-right:0 !important;max-width:100% !important;}
+  .rt-feat .ce-tw{margin-left:0 !important;margin-right:0 !important;max-width:100% !important;}
+  .rt-feat .pullwide q{font-size:clamp(24px,7vw,34px);}
+  /* imagery never overflows its column */
+  .rt-home img,.rt-wis img,.rt-feat img{max-width:100%;height:auto;}
+  /* headings scale down so long titles fit instead of clipping */
+  .cv-in h1{font-size:clamp(38px,12.5vw,188px) !important;}
+  .rt-feat .fhero h1{font-size:clamp(38px,10vw,160px) !important;}
+  .rt-wis .stack .wrap,.rt-home .cv-index,.rt-home .spread .wrap{padding-left:20px;padding-right:20px;}
+  /* article / content side padding */
+  .rt-feat .article,.rt-feat .ce,.rt-feat .ce-note,.rt-cite .cz-in,.rt-gloss .cz-in{padding-left:20px;padding-right:20px;}
+  /* breadcrumb: one line, no wrap-overlap onto the hero */
+  .site-bc{font-size:8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+}
+@media (max-width:400px){
+  .cv-in h1{font-size:clamp(34px,12vw,188px) !important;}
+  .rt-feat .fhero h1{font-size:clamp(34px,10vw,160px) !important;}
+  .rt-feat .ce-strip{grid-template-columns:1fr !important;}
+}
+
 .rt-wis .tier.clk{cursor:pointer;}
 .rt-wis .tier.clk .wn{transition:color .2s;}
 .rt-wis .tier.clk:hover{background:var(--ink3);}
