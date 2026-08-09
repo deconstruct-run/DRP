@@ -534,15 +534,17 @@ body.menu-open .sheet{transform:none;opacity:1;visibility:visible;}
 .nsres .nr .nx{display:block;font-family:var(--f-read);font-size:11px;line-height:1.5;color:var(--tx2);margin-top:5px;}
 .nsres .nr .nx mark{background:transparent;color:var(--cta);font-weight:700;}
 .nsres .nempty{padding:15px 14px;font-family:var(--f-read);font-size:11px;color:var(--tx3);}
-.shsrch{position:relative;display:block;padding:14px 24px;border-bottom:1px solid var(--bd2);}
-.shsrch-b{display:flex;align-items:center;gap:10px;}
-.shsrch .nsi{font-size:15px;color:var(--tx3);}
-.shsrch .nsq{width:100%;font-size:12px;color:var(--inktx);letter-spacing:1.5px;}
-.shsrch .nsq::placeholder{color:var(--tx3);}
+.shsrch{position:relative;display:block;padding:16px 20px;border-bottom:1px solid var(--bd2);}
+.shsrch-b{display:flex;align-items:center;gap:11px;border:1px solid var(--bd2);background:rgba(237,232,220,.05);padding:12px 14px;}
+.shsrch-b:focus-within{border-color:var(--cta);}
+.shsrch .nsi{font-size:16px;line-height:1;color:var(--inktx);}
+.shsrch .nsq{width:100%;font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--inktx);}
+.shsrch .nsq::placeholder{color:#a49b8d;opacity:1;letter-spacing:1.5px;}
 .nsres.sh{position:static;width:100%;max-height:58vh;overflow-y:auto;border:none;box-shadow:none;background:transparent;margin-top:12px;}
 .nsres.sh .nrhd{background:transparent;}
 .qhit{animation:qhitflash 2.4s ease-out;}
 @keyframes qhitflash{0%{background:rgba(237,127,28,.30);}55%{background:rgba(237,127,28,.12);}100%{background:transparent;}}
+body.menu-open .site-bc{display:none;}
 @media (max-width:680px){ .nsrch{display:none;} }
 </style>
 </head>
@@ -578,9 +580,7 @@ body.menu-open .sheet{transform:none;opacity:1;visibility:visible;}
 </header>
 <div class="site-bc"><span class="bc-in" id="bc"></span></div>
 <nav class="sheet">
-  <div class="shsrch"><div class="shsrch-b"><span class="nsi">⌕</span><input class="nsq" id="q2" type="search" placeholder="Search the report" autocomplete="off" spellcheck="false" aria-label="Search the report"></div><div class="nsres sh" id="qres2" role="listbox"></div></div>
-  <a class="sh-link" href="#/home"><span class="dot" style="background:var(--inktx)"></span>Cover</a>
-  <div class="sh-mod apx exp" id="sh-apx"><div class="row" onclick="this.parentElement.classList.toggle('exp')"><span class="dot"></span>The Apparatus<span class="car">▾</span></div>
+  <div class="shsrch"><div class="shsrch-b"><span class="nsi">⌕</span><input class="nsq" id="q2" type="search" placeholder="Search the report" autocomplete="off" spellcheck="false" aria-label="Search the report"></div><div class="nsres sh" id="qres2" role="listbox"></div></div>  <div class="sh-mod apx exp" id="sh-apx"><div class="row" onclick="this.parentElement.classList.toggle('exp')"><span class="dot"></span>The Apparatus<span class="car">▾</span></div>
     <div class="sh-sub"><div class="grp a"><div class="lab">Section 01</div><a class="row" href="#/perception"><span class="nn">01</span>Perception</a><a class="row" href="#/the-interface"><span class="nn">02</span>The Interface</a><a class="row" href="#/the-neural-frontier"><span class="nn">03</span>The Neural Frontier</a><a class="row" href="#/actuation"><span class="nn">04</span>Actuation</a><a class="row" href="#/the-substrate"><span class="nn">05</span>The Substrate</a><a class="row" href="#/the-environment"><span class="nn">06</span>The Environment</a><a class="row" href="#/the-program-board"><span class="nn">07</span>The Program Board</a><a class="row" href="#/the-doctrine"><span class="nn">08</span>The Doctrine</a><a class="row" href="#/the-recognition"><span class="nn">09</span>The Recognition</a></div><div class="grp b"><div class="lab">Section 02</div><a class="row" href="#/the-socket"><span class="nn">10</span>The Socket</a><a class="row" href="#/the-delegated-actor"><span class="nn">11</span>The Delegated Actor</a><a class="row" href="#/the-recursive-yield"><span class="nn">12</span>The Recursive Yield</a><a class="row" href="#/the-metabolic-base"><span class="nn">13</span>The Metabolic Base</a><a class="row" href="#/the-activation"><span class="nn">14</span>The Activation</a><a class="row" href="#/the-shape-of-the-whole"><span class="nn">15</span>The Shape Of The Whole</a></div></div></div>
   <div class="sh-mod wis exp" id="sh-wis"><div class="row" onclick="this.parentElement.classList.toggle('exp')"><span class="dot"></span>Wire · Insight · Synth<span class="car">▾</span></div>
     <div class="sh-sub"><a class="row" href="#/wis"><span class="nn" style="color:var(--sec)">◉</span>Open the live module</a></div></div>
