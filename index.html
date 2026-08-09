@@ -531,7 +531,7 @@ body.menu-open .sheet{transform:none;opacity:1;visibility:visible;}
 .nsres .nr:hover,.nsres .nr.sel{background:var(--ink2);}
 .nsres .nr .nt{display:flex;justify-content:space-between;gap:12px;align-items:baseline;font-family:var(--f-tech);font-size:10px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;color:var(--inktx);}
 .nsres .nr .nc{color:var(--cta);font-size:8.5px;letter-spacing:1px;white-space:nowrap;}
-.nsres .nr .nx{display:block;font-family:var(--f-read);font-size:11px;line-height:1.5;color:var(--tx2);margin-top:5px;}
+.nsres .nr .nx{display:block;font-family:var(--f-read);font-size:11px;line-height:1.5;color:var(--tx2);margin-top:5px;overflow-wrap:anywhere;word-break:break-word;}
 .nsres .nr .nx mark{background:transparent;color:var(--cta);font-weight:700;}
 .nsres .nempty{padding:15px 14px;font-family:var(--f-read);font-size:11px;color:var(--tx3);}
 .shsrch{position:relative;display:block;padding:16px 20px;border-bottom:1px solid var(--bd2);}
@@ -545,6 +545,12 @@ body.menu-open .sheet{transform:none;opacity:1;visibility:visible;}
 .qhit{animation:qhitflash 2.4s ease-out;}
 @keyframes qhitflash{0%{background:rgba(237,127,28,.30);}55%{background:rgba(237,127,28,.12);}100%{background:transparent;}}
 body.menu-open .site-bc{display:none;}
+/* iOS zooms into any input under 16px on focus and often never zooms back, rescaling the whole page.
+   Force 16px on touch devices, and stop long result snippets from widening the viewport. */
+@media (pointer:coarse){ .shsrch .nsq,.nsrch .nsq{font-size:16px !important;} }
+.sheet{overflow-x:hidden;}
+.nsres,.nsres.sh{overflow-x:hidden;max-width:100%;}
+.nsres .nr .nt{overflow-wrap:anywhere;}
 @media (max-width:680px){ .nsrch{display:none;} }
 </style>
 </head>
