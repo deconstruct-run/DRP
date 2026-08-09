@@ -547,7 +547,7 @@ body.menu-open .sheet{transform:none;opacity:1;visibility:visible;}
 body.menu-open .site-bc{display:none;}
 /* iOS zooms into any input under 16px on focus and often never zooms back, rescaling the whole page.
    Force 16px on touch devices, and stop long result snippets from widening the viewport. */
-@media (pointer:coarse){ .shsrch .nsq,.nsrch .nsq{font-size:16px !important;} }
+@media (pointer:coarse){ .shsrch .nsq,.nsrch .nsq,.rt-contact .cf-in{font-size:16px !important;} }
 .sheet{overflow-x:hidden;}
 .nsres,.nsres.sh{overflow-x:hidden;max-width:100%;}
 .nsres .nr .nt{overflow-wrap:anywhere;}
@@ -1106,7 +1106,7 @@ document.querySelectorAll('[data-anchor]').forEach(a=>a.addEventListener('click'
 document.addEventListener('click',()=>document.querySelectorAll('.navitem').forEach(o=>o.classList.remove('open')));
 document.addEventListener('keydown',e=>{if(e.key==='Escape'){document.querySelectorAll('.navitem').forEach(o=>o.classList.remove('open'));document.body.classList.remove('menu-open');}});
 addEventListener('scroll',()=>{const d=document.documentElement;const den=d.scrollHeight-d.clientHeight;if(prog)prog.style.width=(den>0?d.scrollTop/den*100:0)+'%';},{passive:true});
-var CONTACT_ENDPOINT="https://formsubmit.co/ajax/jh@deconstruct.run";
+var CONTACT_ENDPOINT="https://formsubmit.co/ajax/7b0a2596687c90b33ce087979bae08ba";
 function contactSend(e){e.preventDefault();var f=e.target;var em=(document.getElementById("c_email")||{}).value||"";var ms=(document.getElementById("c_msg")||{}).value||"";var btn=f.querySelector(".cf-btn");var note=document.getElementById("cf-status");function set(t,c){if(note){note.textContent=t;note.className="cf-note"+(c?" "+c:"");}}
 set("Sending…","send");if(btn){btn.disabled=true;}
 fetch(CONTACT_ENDPOINT,{method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},body:JSON.stringify({name:"deconstruct.run contact",email:em,message:ms,_subject:"deconstruct.run — message from the field",_template:"table",_captcha:"false"})})
