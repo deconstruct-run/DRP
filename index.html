@@ -515,6 +515,35 @@ body.menu-open .sheet{transform:none;opacity:1;visibility:visible;}
 .rt-contact .cf-note.ok{color:var(--tx);}
 .rt-contact .cf-note.ok::before{content:"● ";color:var(--on);}
 .rt-contact .cf-note.err{color:var(--cta);}
+
+/* ===== NAV SEARCH ===== */
+.nsrch{position:relative;display:flex;align-items:center;gap:7px;border:1px solid var(--bd2);background:var(--paper);padding:6px 9px 6px 11px;margin-right:6px;}
+.nsrch .nsi{font-size:13px;line-height:1;color:var(--tx3);}
+.nsq{border:none;background:transparent;outline:none;font-family:var(--f-tech);font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--tx);width:118px;}
+.nsq::placeholder{color:var(--tx3);letter-spacing:1.5px;opacity:1;}
+.nsq::-webkit-search-cancel-button{-webkit-appearance:none;}
+.nsrch:focus-within{border-color:var(--cta);}
+.nsres{position:absolute;top:calc(100% + 9px);left:0;width:min(468px,82vw);max-height:min(70vh,560px);overflow-y:auto;background:var(--ink);border:1px solid var(--bd2);box-shadow:0 18px 46px rgba(0,0,0,.5);z-index:80;display:none;}
+.nsres.open{display:block;}
+.nsres .nrhd{position:sticky;top:0;background:var(--ink);font-family:var(--f-tech);font-size:8.5px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--tx3);padding:11px 14px;border-bottom:1px solid var(--bd2);}
+.nsres .nr{display:block;padding:12px 14px;border-bottom:1px solid var(--bd2);cursor:pointer;transition:background .14s;}
+.nsres .nr:last-child{border-bottom:none;}
+.nsres .nr:hover,.nsres .nr.sel{background:var(--ink2);}
+.nsres .nr .nt{display:flex;justify-content:space-between;gap:12px;align-items:baseline;font-family:var(--f-tech);font-size:10px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;color:var(--inktx);}
+.nsres .nr .nc{color:var(--cta);font-size:8.5px;letter-spacing:1px;white-space:nowrap;}
+.nsres .nr .nx{display:block;font-family:var(--f-read);font-size:11px;line-height:1.5;color:var(--tx2);margin-top:5px;}
+.nsres .nr .nx mark{background:transparent;color:var(--cta);font-weight:700;}
+.nsres .nempty{padding:15px 14px;font-family:var(--f-read);font-size:11px;color:var(--tx3);}
+.shsrch{position:relative;display:block;padding:14px 24px;border-bottom:1px solid var(--bd2);}
+.shsrch-b{display:flex;align-items:center;gap:10px;}
+.shsrch .nsi{font-size:15px;color:var(--tx3);}
+.shsrch .nsq{width:100%;font-size:12px;color:var(--inktx);letter-spacing:1.5px;}
+.shsrch .nsq::placeholder{color:var(--tx3);}
+.nsres.sh{position:static;width:100%;max-height:58vh;overflow-y:auto;border:none;box-shadow:none;background:transparent;margin-top:12px;}
+.nsres.sh .nrhd{background:transparent;}
+.qhit{animation:qhitflash 2.4s ease-out;}
+@keyframes qhitflash{0%{background:rgba(237,127,28,.30);}55%{background:rgba(237,127,28,.12);}100%{background:transparent;}}
+@media (max-width:680px){ .nsrch{display:none;} }
 </style>
 </head>
 <body>
@@ -522,6 +551,7 @@ body.menu-open .sheet{transform:none;opacity:1;visibility:visible;}
 <header class="site-mast" id="mast">
   <a class="logo" href="#/home"><span class="d">deconstruct.run</span><span class="s">//</span><span class="p">FIELD&nbsp;REPORT</span></a>
   <nav class="snav">
+    <div class="nsrch" id="nsrch"><span class="nsi">⌕</span><input class="nsq" id="q" type="search" placeholder="Search" autocomplete="off" spellcheck="false" aria-label="Search the report"><div class="nsres" id="qres" role="listbox"></div></div>
     <div class="navitem apx" id="na-apx"><span class="m"><span class="dot"></span>THE APPARATUS<span class="car">▾</span></span>
       <div class="drop">
         <div class="grp a"><div class="lab"><i></i>Section 01 · Integration within the body</div><a class="row" href="#/perception"><span class="nn">01</span>Perception</a><a class="row" href="#/the-interface"><span class="nn">02</span>The Interface</a><a class="row" href="#/the-neural-frontier"><span class="nn">03</span>The Neural Frontier</a><a class="row" href="#/actuation"><span class="nn">04</span>Actuation</a><a class="row" href="#/the-substrate"><span class="nn">05</span>The Substrate</a><a class="row" href="#/the-environment"><span class="nn">06</span>The Environment</a><a class="row" href="#/the-program-board"><span class="nn">07</span>The Program Board</a><a class="row" href="#/the-doctrine"><span class="nn">08</span>The Doctrine</a><a class="row" href="#/the-recognition"><span class="nn">09</span>The Recognition</a></div>
@@ -548,6 +578,7 @@ body.menu-open .sheet{transform:none;opacity:1;visibility:visible;}
 </header>
 <div class="site-bc"><span class="bc-in" id="bc"></span></div>
 <nav class="sheet">
+  <div class="shsrch"><div class="shsrch-b"><span class="nsi">⌕</span><input class="nsq" id="q2" type="search" placeholder="Search the report" autocomplete="off" spellcheck="false" aria-label="Search the report"></div><div class="nsres sh" id="qres2" role="listbox"></div></div>
   <a class="sh-link" href="#/home"><span class="dot" style="background:var(--inktx)"></span>Cover</a>
   <div class="sh-mod apx exp" id="sh-apx"><div class="row" onclick="this.parentElement.classList.toggle('exp')"><span class="dot"></span>The Apparatus<span class="car">▾</span></div>
     <div class="sh-sub"><div class="grp a"><div class="lab">Section 01</div><a class="row" href="#/perception"><span class="nn">01</span>Perception</a><a class="row" href="#/the-interface"><span class="nn">02</span>The Interface</a><a class="row" href="#/the-neural-frontier"><span class="nn">03</span>The Neural Frontier</a><a class="row" href="#/actuation"><span class="nn">04</span>Actuation</a><a class="row" href="#/the-substrate"><span class="nn">05</span>The Substrate</a><a class="row" href="#/the-environment"><span class="nn">06</span>The Environment</a><a class="row" href="#/the-program-board"><span class="nn">07</span>The Program Board</a><a class="row" href="#/the-doctrine"><span class="nn">08</span>The Doctrine</a><a class="row" href="#/the-recognition"><span class="nn">09</span>The Recognition</a></div><div class="grp b"><div class="lab">Section 02</div><a class="row" href="#/the-socket"><span class="nn">10</span>The Socket</a><a class="row" href="#/the-delegated-actor"><span class="nn">11</span>The Delegated Actor</a><a class="row" href="#/the-recursive-yield"><span class="nn">12</span>The Recursive Yield</a><a class="row" href="#/the-metabolic-base"><span class="nn">13</span>The Metabolic Base</a><a class="row" href="#/the-activation"><span class="nn">14</span>The Activation</a><a class="row" href="#/the-shape-of-the-whole"><span class="nn">15</span>The Shape Of The Whole</a></div></div></div>
@@ -1045,6 +1076,7 @@ body.menu-open .sheet{transform:none;opacity:1;visibility:visible;}
 const order=["home", "preface", "intro", "sec-01", "perception", "the-interface", "the-neural-frontier", "actuation", "the-substrate", "the-environment", "the-program-board", "the-doctrine", "the-recognition", "sec-02", "the-socket", "the-delegated-actor", "the-recursive-yield", "the-metabolic-base", "the-activation", "the-shape-of-the-whole", "apparatus"], BC={"home": "<span class=\"h\">deconstruct.run</span><span class=\"cv\">\u203a</span>The Apparatus \u00b7 Vol.001", "preface": "<span class=\"h\">deconstruct.run</span><span class=\"cv\">\u203a</span>The Apparatus<span class=\"cv\">\u203a</span><span class=\"cur\">Preface</span>", "intro": "<span class=\"h\">deconstruct.run</span><span class=\"cv\">\u203a</span>The Apparatus<span class=\"cv\">\u203a</span><span class=\"cur\">Introduction</span>", "sec-01": "<span class=\"h\">deconstruct.run</span><span class=\"cv\">\u203a</span>The Apparatus<span class=\"cv\">\u203a</span><span class=\"cur\">Section 01 \u2014 Integration within the body</span>", "perception": "<span class=\"h\">deconstruct.run</span><span class=\"cv\">\u203a</span>Section 01<span class=\"cv\">\u203a</span><span class=\"cur\">Part 01 \u00b7 Perception</span>", "the-interface": "<span class=\"h\">deconstruct.run</span><span class=\"cv\">\u203a</span>Section 01<span class=\"cv\">\u203a</span><span class=\"cur\">Part 02 \u00b7 The Interface</span>", "the-neural-frontier": "<span class=\"h\">deconstruct.run</span><span class=\"cv\">\u203a</span>Section 01<span class=\"cv\">\u203a</span><span class=\"cur\">Part 03 \u00b7 The Neural Frontier</span>", "actuation": "<span class=\"h\">deconstruct.run</span><span class=\"cv\">\u203a</span>Section 01<span class=\"cv\">\u203a</span><span class=\"cur\">Part 04 \u00b7 Actuation</span>", "the-substrate": "<span class=\"h\">deconstruct.run</span><span class=\"cv\">\u203a</span>Section 01<span class=\"cv\">\u203a</span><span class=\"cur\">Part 05 \u00b7 The Substrate</span>", "the-environment": "<span class=\"h\">deconstruct.run</span><span class=\"cv\">\u203a</span>Section 01<span class=\"cv\">\u203a</span><span class=\"cur\">Part 06 \u00b7 The Environment</span>", "the-program-board": "<span class=\"h\">deconstruct.run</span><span class=\"cv\">\u203a</span>Section 01<span class=\"cv\">\u203a</span><span class=\"cur\">Part 07 \u00b7 The Program Board</span>", "the-doctrine": "<span class=\"h\">deconstruct.run</span><span class=\"cv\">\u203a</span>Section 01<span class=\"cv\">\u203a</span><span class=\"cur\">Part 08 \u00b7 The Doctrine</span>", "the-recognition": "<span class=\"h\">deconstruct.run</span><span class=\"cv\">\u203a</span>Section 01<span class=\"cv\">\u203a</span><span class=\"cur\">Part 09 \u00b7 The Recognition</span>", "sec-02": "<span class=\"h\">deconstruct.run</span><span class=\"cv\">\u203a</span>The Apparatus<span class=\"cv\">\u203a</span><span class=\"cur\">Section 02 \u2014 Structures that bind the parts</span>", "the-socket": "<span class=\"h\">deconstruct.run</span><span class=\"cv\">\u203a</span>Section 02<span class=\"cv\">\u203a</span><span class=\"cur\">Part 10 \u00b7 The Socket</span>", "the-delegated-actor": "<span class=\"h\">deconstruct.run</span><span class=\"cv\">\u203a</span>Section 02<span class=\"cv\">\u203a</span><span class=\"cur\">Part 11 \u00b7 The Delegated Actor</span>", "the-recursive-yield": "<span class=\"h\">deconstruct.run</span><span class=\"cv\">\u203a</span>Section 02<span class=\"cv\">\u203a</span><span class=\"cur\">Part 12 \u00b7 The Recursive Yield</span>", "the-metabolic-base": "<span class=\"h\">deconstruct.run</span><span class=\"cv\">\u203a</span>Section 02<span class=\"cv\">\u203a</span><span class=\"cur\">Part 13 \u00b7 The Metabolic Base</span>", "the-activation": "<span class=\"h\">deconstruct.run</span><span class=\"cv\">\u203a</span>Section 02<span class=\"cv\">\u203a</span><span class=\"cur\">Part 14 \u00b7 The Activation</span>", "the-shape-of-the-whole": "<span class=\"h\">deconstruct.run</span><span class=\"cv\">\u203a</span>Section 02<span class=\"cv\">\u203a</span><span class=\"cur\">Part 15 \u00b7 The Shape Of The Whole</span>", "apparatus": "<span class=\"h\">deconstruct.run</span><span class=\"cv\">\u203a</span>The Apparatus<span class=\"cv\">\u203a</span><span class=\"cur\">Reference</span>", "wis": "<span class=\"h\">deconstruct.run</span><span class=\"cv\">\u203a</span>WIRE / INSIGHT / SYNTH<span class=\"cv\">\u203a</span><span class=\"cur\">the live layer</span>", "glossary": "<span class=\"h\">deconstruct.run</span><span class=\"cv\">\u203a</span>The Apparatus<span class=\"cv\">\u203a</span><span class=\"cur\">Field Glossary</span>", "wire-archive": "<span class=\"h\">deconstruct.run</span><span class=\"cv\">\u203a</span>WIRE / INSIGHT / SYNTH<span class=\"cv\">\u203a</span>Wire<span class=\"cv\">\u203a</span><span class=\"cur\">Archive</span>", "contact": "<span class=\"h\">deconstruct.run</span><span class=\"cv\">\u203a</span><span class=\"cur\">Contact</span>", "insight-01": "<span class=\"h\">deconstruct.run</span><span class=\"cv\">\u203a</span>WIRE / INSIGHT / SYNTH<span class=\"cv\">\u203a</span>Insight<span class=\"cv\">\u203a</span><span class=\"cur\">The address on the skin</span>", "insight-02": "<span class=\"h\">deconstruct.run</span><span class=\"cv\">\u203a</span>WIRE / INSIGHT / SYNTH<span class=\"cv\">\u203a</span>Insight<span class=\"cv\">\u203a</span><span class=\"cur\">Read-write, no incision</span>", "insight-03": "<span class=\"h\">deconstruct.run</span><span class=\"cv\">\u203a</span>WIRE / INSIGHT / SYNTH<span class=\"cv\">\u203a</span>Insight<span class=\"cv\">\u203a</span><span class=\"cur\">Identity leaves the face</span>", "insight-04": "<span class=\"h\">deconstruct.run</span><span class=\"cv\">\u203a</span>WIRE / INSIGHT / SYNTH<span class=\"cv\">\u203a</span>Insight<span class=\"cv\">\u203a</span><span class=\"cur\">The Conversion Engine</span>"}, valid=order.concat(["wis", "glossary", "wire-archive", "contact", "insight-01", "insight-02", "insight-03", "insight-04"]);
 const routesEl=[...document.querySelectorAll('.route')];
 const prog=document.getElementById('prog');
+var pendingQ=null;
 function reveal(r){ r.querySelectorAll('.rv').forEach((el,i)=>{setTimeout(()=>el.classList.add('in'), 60+i*55);}); }
 function show(slug){ if(!valid.includes(slug))slug='home';
   routesEl.forEach(r=>r.classList.toggle('on', r.dataset.route===slug));
@@ -1053,6 +1085,7 @@ function show(slug){ if(!valid.includes(slug))slug='home';
   document.body.classList.remove('menu-open');
   const R=routesEl.find(r=>r.dataset.route===slug); if(R) reveal(R);
   window.scrollTo(0,0);
+  if(pendingQ){var qq=pendingQ;pendingQ=null;setTimeout(function(){if(R&&typeof scrollToMatch==='function')scrollToMatch(R,qq);},90);}
 }
 function slugFromHash(){const h=location.hash;return h.startsWith('#/')?h.slice(2):'home';}
 addEventListener('hashchange',()=>show(slugFromHash()));
@@ -1076,6 +1109,50 @@ fetch(CONTACT_ENDPOINT,{method:"POST",headers:{"Content-Type":"application/json"
 return false;}
 function tick(){const d=new Date();const t=d.toLocaleTimeString('en-US',{timeZone:'America/New_York',hour:'2-digit',minute:'2-digit',hour12:false})+' ET';['clock','clock2','wclock','wclock2','wclock3'].forEach(id=>{const el=document.getElementById(id);if(el)el.textContent=t;});}
 tick();setInterval(tick,15000);
+</script>
+<script>
+(function(){
+var TITLES={"home": "The Apparatus \u00b7 Cover", "preface": "Preface", "intro": "Introduction", "sec-01": "Section 01 \u00b7 Integration within the body", "perception": "Part 01 \u00b7 Perception", "the-interface": "Part 02 \u00b7 The Interface", "the-neural-frontier": "Part 03 \u00b7 The Neural Frontier", "actuation": "Part 04 \u00b7 Actuation", "the-substrate": "Part 05 \u00b7 The Substrate", "the-environment": "Part 06 \u00b7 The Environment", "the-program-board": "Part 07 \u00b7 The Program Board", "the-doctrine": "Part 08 \u00b7 The Doctrine", "the-recognition": "Part 09 \u00b7 The Recognition", "sec-02": "Section 02 \u00b7 Structures that bind the parts", "the-socket": "Part 10 \u00b7 The Socket", "the-delegated-actor": "Part 11 \u00b7 The Delegated Actor", "the-recursive-yield": "Part 12 \u00b7 The Recursive Yield", "the-metabolic-base": "Part 13 \u00b7 The Metabolic Base", "the-activation": "Part 14 \u00b7 The Activation", "the-shape-of-the-whole": "Part 15 \u00b7 The Shape Of The Whole", "apparatus": "Reference \u00b7 Sources & Timeline", "wis": "Wire / Insight / Synth", "glossary": "Field Glossary", "wire-archive": "Wire Archive", "contact": "Contact", "insight-01": "Insight \u00b7 The address on the skin", "insight-02": "Insight \u00b7 Read-write, no incision", "insight-03": "Insight \u00b7 Identity leaves the face", "insight-04": "Insight \u00b7 The Conversion Engine"};
+var routesEl=[].slice.call(document.querySelectorAll('.route'));
+function sxesc(s){return (s||'').replace(/[&<>"]/g,function(c){return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'})[c];});}
+function sxtext(r){var parts=[];var w=document.createTreeWalker(r,NodeFilter.SHOW_TEXT,null);var n;while(n=w.nextNode()){var v=n.nodeValue;if(v&&v.trim())parts.push(v.trim());}return parts.join(' ').replace(/\s+/g,' ').trim();}
+var SIDX=routesEl.map(function(r){var t=sxtext(r);return {slug:r.getAttribute('data-route'),title:TITLES[r.getAttribute('data-route')]||r.getAttribute('data-route'),text:t,low:t.toLowerCase()};}).filter(function(e){return e.text.length>0;});
+function sxsnip(text,low,q){var i=low.indexOf(q);if(i<0)return text.slice(0,120);var s=Math.max(0,i-48),e=Math.min(text.length,i+q.length+80);return (s>0?'… ':'')+text.slice(s,e).trim()+(e<text.length?' …':'');}
+function sxhl(s,q){var e=sxesc(s);try{var rx=new RegExp('('+q.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+')','ig');return e.replace(rx,'<mark>$1</mark>');}catch(_){return e;}}
+var sxSel=-1;
+function sxpaint(items){items.forEach(function(it,i){it.classList.toggle('sel',i===sxSel);});if(items[sxSel])items[sxSel].scrollIntoView({block:'nearest'});}
+function runSearch(val,panel){var q=(val||'').trim().toLowerCase();sxSel=-1;
+  if(q.length<2){panel.classList.remove('open');panel.innerHTML='';return;}
+  var res=[];for(var k=0;k<SIDX.length;k++){var e=SIDX[k];var idx=e.low.indexOf(q);if(idx<0)continue;var c=0,from=0;while((from=e.low.indexOf(q,from))>=0){c++;from+=q.length;}res.push({e:e,count:c,first:idx});}
+  res.sort(function(a,b){return b.count-a.count||a.first-b.first;});
+  if(!res.length){panel.innerHTML='<div class="nempty">No matches for “'+sxesc(q)+'”</div>';panel.classList.add('open');return;}
+  var html='<div class="nrhd">'+res.length+' page'+(res.length>1?'s':'')+' · “'+sxesc(q)+'”</div>';
+  res.forEach(function(m){var sn=sxsnip(m.e.text,m.e.low,q);html+='<a class="nr" data-slug="'+m.e.slug+'"><span class="nt">'+sxesc(m.e.title)+'<span class="nc">'+m.count+'×</span></span><span class="nx">'+sxhl(sn,q)+'</span></a>';});
+  panel.innerHTML=html;panel.classList.add('open');
+  [].slice.call(panel.querySelectorAll('.nr')).forEach(function(a){a.addEventListener('click',function(ev){ev.preventDefault();jumpTo(a.getAttribute('data-slug'),q);});});
+}
+function scrollToMatch(R,q){q=(q||'').toLowerCase();if(!q)return false;var w=document.createTreeWalker(R,NodeFilter.SHOW_TEXT,null);var n;while(n=w.nextNode()){if(n.nodeValue&&n.nodeValue.toLowerCase().indexOf(q)>=0){var el=n.parentElement;if(!el)continue;var blk=el.closest('p,li,td,th,h1,h2,h3,h4,figcaption,.gcard,.grow,.cite-row,.mrow,.ce-jc,.jt,.statement,.dek,.wmain,blockquote,.gd,.gt')||el;blk.scrollIntoView({behavior:'smooth',block:'center'});blk.classList.add('qhit');setTimeout(function(){blk.classList.remove('qhit');},2400);return true;}}return false;}
+window.scrollToMatch=scrollToMatch;
+function closeSearch(){[].slice.call(document.querySelectorAll('.nsres')).forEach(function(p){p.classList.remove('open');});}
+function jumpTo(slug,q){window.pendingQ=q;closeSearch();document.body.classList.remove('menu-open');
+  var here=(location.hash==='#/'+slug)||(slug==='home'&&(location.hash===''||location.hash==='#/'));
+  if(here){var R=routesEl.find(function(r){return r.getAttribute('data-route')===slug;});window.scrollTo(0,0);window.pendingQ=null;if(R)setTimeout(function(){scrollToMatch(R,q);},70);}
+  else{location.hash='#/'+slug;}
+}
+window.jumpTo=jumpTo;
+function sxbind(inp,panel){if(!inp||!panel)return;var t=null;
+  inp.addEventListener('input',function(){clearTimeout(t);t=setTimeout(function(){runSearch(inp.value,panel);},110);});
+  inp.addEventListener('focus',function(){if(inp.value.trim().length>=2)runSearch(inp.value,panel);});
+  inp.addEventListener('keydown',function(e){var items=[].slice.call(panel.querySelectorAll('.nr'));
+    if(e.key==='ArrowDown'){e.preventDefault();sxSel=Math.min(items.length-1,sxSel+1);sxpaint(items);}
+    else if(e.key==='ArrowUp'){e.preventDefault();sxSel=Math.max(0,sxSel-1);sxpaint(items);}
+    else if(e.key==='Enter'){e.preventDefault();var pick=(sxSel>=0?items[sxSel]:items[0]);if(pick)jumpTo(pick.getAttribute('data-slug'),inp.value.trim().toLowerCase());}
+    else if(e.key==='Escape'){closeSearch();inp.blur();}});
+}
+sxbind(document.getElementById('q'),document.getElementById('qres'));
+sxbind(document.getElementById('q2'),document.getElementById('qres2'));
+document.addEventListener('click',function(e){var ns=document.getElementById('nsrch');var qr=document.getElementById('qres');if(ns&&qr&&!ns.contains(e.target))qr.classList.remove('open');});
+})();
 </script>
 </body>
 </html>
